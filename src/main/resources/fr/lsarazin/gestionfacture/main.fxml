@@ -41,6 +41,7 @@
       <children>
         <Button onAction="#onCreateFactureClick" text="Créer facture" />
          <Button disable="true" onAction="#onCreateDevisClick" text="Créer devis" GridPane.columnIndex="1" />
+         <Button mnemonicParsing="false" onAction="#ListFilesUsingJavaIO" text="Rafraichir" GridPane.columnIndex="3" />
       </children>
    </GridPane>
 </VBox>

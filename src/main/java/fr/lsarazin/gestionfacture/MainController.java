@@ -6,7 +6,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Paths;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class MainController {
     @FXML
@@ -37,5 +42,13 @@ public class MainController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void ListFilesUsingJavaIO() {
+        final String dir = "src/main/resources/invoice/";
+        final String pattern = ".pdf";
+        final File file = Paths.get(dir).toFile();
+        Stream.of(file.list((pFile, pString) ->  pString.endsWith(pattern)))
+                .forEach(System.out::println);
     }
 }
