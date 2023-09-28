@@ -19,7 +19,6 @@ public class PdfHelper {
 
     public void create() {
         try {
-
             Random rand = new Random();
             String chiffre = "1234567890";
             String finalName = "";
@@ -27,17 +26,12 @@ public class PdfHelper {
                 finalName  += chiffre.charAt(rand.nextInt(chiffre.length()));
             }
 
-            // Create a new document
             PDDocument document = new PDDocument();
-
-            // Create a page
             PDPage page = new PDPage(PDRectangle.A4);
             document.addPage(page);
 
-            // Create a content stream for the page
             PDPageContentStream contentStream = new PDPageContentStream(document, page);
 
-            // Add text to the page
             contentStream.setFont(PDType1Font.HELVETICA_BOLD, 12);
             contentStream.beginText();
             contentStream.setLeading(14.5f);
@@ -64,13 +58,8 @@ public class PdfHelper {
             contentStream.showText("Prix: " + this.content.get("prix") + "€");
             contentStream.endText();
 
-            // Close the content stream
             contentStream.close();
-
-            // Save the document to a file
             document.save("src/main/resources/invoice/" + finalName + ".pdf");
-
-            // Close the document
             document.close();
 
             System.out.println("PDF created successfully.");

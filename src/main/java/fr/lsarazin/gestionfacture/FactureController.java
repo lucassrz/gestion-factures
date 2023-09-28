@@ -10,7 +10,6 @@ import javafx.stage.Stage;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
 public class FactureController {
     @FXML
@@ -60,5 +59,7 @@ public class FactureController {
 
         PdfHelper pdf = new PdfHelper(data);
         pdf.create();
+
+        this.onReturnButtonClick();
     }
 }
